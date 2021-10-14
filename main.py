@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from forms import UserInput
 from encoder import encode_message, allowed_to_encode, allowed_to_decode, decode_message
