@@ -2,12 +2,31 @@
 
 {% block content %}
 {% include "header.html" %}
-<h1>Encode with <img src="{{url_for('static',filename='assets/morse_code_machine.png')}}" class="img-fluid text-right" style="max-width:10rem"></h1>
+<h1>Encode with <img src="{{url_for('static',filename='assets/morse_code_machine.png')}}" class="img-fluid text-right"
+                     style="max-width:10rem"></h1>
 <div class="row mt-3 justify-content-md-center">
-        <p class="lead">Write here the message you would like to encode</p>
-        <div class="col-lg-6">
-        {{ wtf.quick_form(form, novalidate=True, button_map={"submit_button": "dark"}) }}
-        </div>
+    <p class="lead">Write here the message you would like to encode</p>
+    <div class="col-lg-6">
+        <form method="POST" action="/" novalidate>
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.text_input.label(class_="control-label") }} {{ form.text_input(class_="form-control") }}
+                {% if form.text_input.errors %}
+                <ul class="errors">
+                    {% for error in form.text_input.errors %}
+                    <p style="color:red">{{ error }}</p>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="encodedtext" class="col-form-label">Output</label>
+                <textarea class="form-control" id="encodedtext" rows="3" readonly>{{result}}</textarea>
+            </div>
+            {{form.encode_button(class_="btn btn-dark")}}
+            {{form.decode_button(class_="btn btn-dark")}}
+        </form>
+    </div>
 </div>
 {% include "footer.html" %}
 {% endblock %}
