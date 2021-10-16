@@ -20,6 +20,6 @@ def make_audio(text):
         elif sign == ' ' or sign == '/':
             output_sound += _PAUSE_SOUND + _PAUSE_SOUND
 
-    output_sound.export(os.path.join(f"static/tmp/{filename}.mp3"), format="mp3")
+    output_sound.export(os.path.join(f"static/tmp/{filename}.wav"), format="wav")
 
-    return f"tmp/{filename}.mp3"
+    return f"tmp/{filename}.wav"
