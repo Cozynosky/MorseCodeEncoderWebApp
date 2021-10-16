@@ -1,4 +1,5 @@
 import datetime
+import os
 from pydub import AudioSegment
 
 _DI_SOUND = AudioSegment.from_file("static/sounds/di_sound.wav", format="wav")
@@ -19,6 +20,6 @@ def make_audio(text):
         elif sign == ' ' or sign == '/':
             output_sound += _PAUSE_SOUND + _PAUSE_SOUND
 
-    output_sound.export(f"static/tmp/{filename}.mp3", format="mp3")
+    output_sound.export(os.path.join(f"static/tmp/{filename}.mp3"), format="mp3")
 
     return f"tmp/{filename}.mp3"
