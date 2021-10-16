@@ -23,8 +23,17 @@
                 <label for="encodedtext" class="col-form-label">Output</label>
                 <textarea class="form-control" id="encodedtext" rows="3" readonly>{{result}}</textarea>
             </div>
+            <div class="form-group">
             {{form.encode_button(class_="btn btn-dark")}}
             {{form.decode_button(class_="btn btn-dark")}}
+            </div>
+            {% if audio_file %}
+            <div class="form-group mt-3">
+                <audio controls>
+                    <source src={{url_for('static',filename=audio_file)}} type="audio/mpeg">
+                </audio>
+            </div>
+            {% endif %}
         </form>
     </div>
 </div>
