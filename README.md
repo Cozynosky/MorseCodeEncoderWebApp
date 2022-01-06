@@ -9,10 +9,6 @@ All app works on Heroku platform under [https://morse-code-encoder.herokuapp.com
 (limited with morse code alphabet) or already encoded message. In Output you will see your result depending od which button you pressed. After encoding there also apperas audio player
 with your encoded message and download option.
 
-Screenshots
-===========
-![Start](https://files.fm/thumb_show.php?i=385fun7g7) ![GameOver](https://files.fm/thumb_show.php?i=bvrm3wds4)
-
 Technologies
 ===========
 * Python 3.9
